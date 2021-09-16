@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -37,5 +38,16 @@ public class MainActivity extends AppCompatActivity {
         rvItems.setAdapter(itemsAdapter);
         rvItems.setLayoutManager(new LinearLayoutManager(this));
 
+        btnADD.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String todoItem = etItem.getText().toString();
+
+                items.add(todoItem);
+                itemsAdapter.notifyItemInserted(items.size() - 1);
+                etItem.setText("");
+
+            }
+        });
     }
 }

@@ -1,4 +1,5 @@
 package com.example.simpletodo;
+import android.content.ClipData;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,12 +10,17 @@ import java.util.List;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class ItemsAdapter extends RecyclerView.Adapter {
+
+    List<String> items;
+
     public ItemsAdapter(List<String> items) {
+        this.items = items;
     }
 
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View todoView = LayoutInflater.from(parent.getContext()).inflate(android.R)
         return null;
     }
 
@@ -29,7 +35,7 @@ public class ItemsAdapter extends RecyclerView.Adapter {
     }
 
     //container to provide easy access to views that represent each row of the list
-public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder> {
+     public class ViewHolder extends RecyclerView.Adapter<ItemsAdapter.ViewHolder> {
          List<String> items;
          public ItemsAdapter(List<String> items) {
              this.items = items;
